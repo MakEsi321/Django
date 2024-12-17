@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Топ миллионеров{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Таблица миллионеров</h1>
+        <table>
+        <thead>
+            <tr>
+                <th>Имя</th>
+                <th>Состояние (USD)</th>
+                <th>Страна</th>
+                <th>Индустрия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for millionaire in millionaires %}
+                <tr>
+                    <td>{{ millionaire.name }}</td>
+                    <td>{{ millionaire.net_worth }}</td>
+                    <td>{{ millionaire.country }}</td>
+                    <td>{{ millionaire.industry }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">Нет данных о миллионерах</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}
